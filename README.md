@@ -5,10 +5,10 @@ This repository contains my implementations of data structures in Python while l
 ## Implemented
 
 - ✅ Singly Linked List
+- ✅ Stack
 
 ## Planned
 
-- ⏳ Stack
 - ⏳ Queue
 - ⏳ Binary Tree
 - ⏳ Graph
@@ -16,4 +16,6 @@ This repository contains my implementations of data structures in Python while l
 ## Files
 
 - `Linked_Lists.py` - Linked List implementation
-- `test_linked_list.py` - Test file
+- `test_linked_list.py` - Linked List test file
+- `Stacks.py` - Stack implementation
+- `test_stacks.py` - Stack test file

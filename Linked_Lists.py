@@ -61,7 +61,7 @@ class LinkedList:
 
     def insert(self, value, index):
         if index > len(self):
-            raise ValueError("Index out of Bounds.")
+            raise IndexError("Index out of Bounds.")
         elif index == 0:
             self.prepend(value)
         elif index == len(self):
@@ -82,7 +82,7 @@ class LinkedList:
         node = self.head
         index = 0
         if node is None:
-            raise ValueError("Cannot delete from an empty list.")
+            raise IndexError("Cannot delete from an empty list.")
         if node.value == value:
             deleted_node = node
             self.head = node.next
@@ -101,11 +101,11 @@ class LinkedList:
     
     def pop(self, index=-1):
         if self.head is None:
-            raise ValueError("Cannot pop from empty list.")
+            raise IndexError("Cannot pop from empty list.")
         if index == -1:
             index = len(self) - 1
         if index >= len(self):
-            raise ValueError("Index out of Bounds.")
+            raise IndexError("Index out of Bounds.")
         elif index == 0:
             deleted_node = self.head
             self.head = self.head.next
@@ -142,7 +142,7 @@ class LinkedList:
             
     def get(self, index):
         if index >= len(self):
-            raise ValueError("Index out of Bounds.")
+            raise IndexError("Index out of Bounds.")
         else:
             node = self.head
             initial_index = 0
@@ -151,20 +151,3 @@ class LinkedList:
                     return node.value
                 node = node.next
                 initial_index += 1
-                    
-
-if __name__ == "__main__":
-    l = LinkedList()
-
-    l.append(10)
-    l.append(20)
-    l.append(30)
-    l.prepend(5)
-
-    l.insert(40, 2)
-
-    l.delete(5)
-
-    l.reverse()
-
-    print(l)
