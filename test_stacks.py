@@ -1,30 +1,30 @@
 from Stacks import Stack
-l = Stack()
+s = Stack()
 
-l.push(5)
-l.push(10)
-l.push(20)
-l.push(30)
+s.push(5)
+s.push(10)
+s.push(20)
+s.push(30)
 
-print(l)
+print(s)
 
-print(10 in l)
-print(15 in l)
+print(10 in s)
+print(15 in s)
 
-print(len(l))
+print(len(s))
 
-print(l.is_empty())
+print(s.is_empty())
 
-print(l.peek())
+print(s.peek())
 
-print(l.pop())
+print(s.pop())
 
-print(len(l))
+print(len(s))
 
-print(l)
+print(s)
 
-l.clear()
+s.clear()
 
-print(len(l))
+print(len(s))
 
-print(l)
+print(s)
