@@ -125,20 +125,17 @@ class LinkedList:
                     node = node.next
     
     def reverse(self):
-        if self.head is None or self.head.next is None:
-            pass
-        else:
-            previous_node = self.head
-            node = self.head.next
-            next_node = self.head.next.next
-            self.head.next = None
-            while node:
-                node.next = previous_node
-                previous_node = node
-                node = next_node
-                if node is not None:
-                    next_node = node.next
-            self.head = previous_node
+        previous = None
+        current = self.head
+
+        while current:
+            next_node = current.next
+            current.next = previous
+            previous = current
+            current = next_node
+        
+        self.head = previous
+
             
     def get(self, index):
         if index >= len(self):
