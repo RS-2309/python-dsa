@@ -8,7 +8,7 @@ The goal of this repository is to understand how common data structures and algo
 
 ## Repository Structure
 
-```
+```text
 python-dsa/
 │
 ├── linked_lists/
@@ -27,31 +27,31 @@ python-dsa/
 
 ## Completed
 
-* ✅ Singly Linked List
-* ✅ Stack
-* ✅ Queue
-* ✅ Hash Table
+- ✅ Singly Linked List
+- ✅ Stack
+- ✅ Queue
+- ✅ Hash Table
+- ✅ Recursion
+- ✅ Binary Search Tree
 
 ---
 
 ## Coming Soon
 
-* ⏳ Recursion
-* ⏳ Trees
-* ⏳ Heaps
-* ⏳ Graphs
-* ⏳ Sorting Algorithms
-* ⏳ Searching Algorithms
-* ⏳ Dynamic Programming
+- ⏳ Heaps
+- ⏳ Graphs
+- ⏳ Sorting Algorithms
+- ⏳ Searching Algorithms
+- ⏳ Dynamic Programming
 
 ---
 
 ## Project Goals
 
-* Implement every major data structure from scratch.
-* Write tests for every implementation.
-* Document each topic with its own README.
-* Build a complete DSA reference in Python.
+- Implement every major data structure from scratch.
+- Write tests for every implementation.
+- Document each topic with its own README.
+- Build a complete DSA reference in Python.
 
 ---
 
@@ -59,13 +59,13 @@ python-dsa/
 
 Each topic contains:
 
-* Source implementation
-* Test file(s)
-* Topic-specific README
+- Source implementation
+- Test file(s)
+- Topic-specific README
 
 Example:
 
-```
+```text
 linked_lists/
 ├── linked_list.py
 ├── test_linked_list.py
@@ -76,14 +76,14 @@ linked_lists/
 
 ## Progress
 
-* 🟢 Linked Lists
-* 🟢 Stacks
-* 🟢 Queues
-* 🟢 Hash Tables
-* ⚪ Recursion
-* ⚪ Trees
-* ⚪ Heaps
-* ⚪ Graphs
+- 🟢 Linked Lists
+- 🟢 Stacks
+- 🟢 Queues
+- 🟢 Hash Tables
+- 🟢 Recursion
+- 🟢 Binary Search Trees
+- ⚪ Heaps
+- ⚪ Graphs
 
 ---
 
