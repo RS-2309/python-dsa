@@ -110,14 +110,3 @@ This module was created to understand:
 * Problem decomposition
 * Recursive searching techniques
 * Mathematical recursion
-
----
-
-## Future Improvements
-
-* Optimize `power()` using exponentiation by squaring
-* Implement merge sort using recursion
-* Implement quicksort
-* Add recursive tree traversals
-* Add classic backtracking problems
-* Compare recursive and iterative solutions

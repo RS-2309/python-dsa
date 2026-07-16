@@ -33,12 +33,13 @@ python-dsa/
 - ✅ Hash Table
 - ✅ Recursion
 - ✅ Binary Search Tree
+- ✅ Min Heap
+- ✅ Max Heap
 
 ---
 
 ## Coming Soon
 
-- ⏳ Heaps
 - ⏳ Graphs
 - ⏳ Sorting Algorithms
 - ⏳ Searching Algorithms
@@ -82,7 +83,7 @@ linked_lists/
 - 🟢 Hash Tables
 - 🟢 Recursion
 - 🟢 Binary Search Trees
-- ⚪ Heaps
+- 🟢 Heaps
 - ⚪ Graphs
 
 ---

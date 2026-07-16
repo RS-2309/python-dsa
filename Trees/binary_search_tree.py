@@ -15,15 +15,15 @@ class BinarySearchTree:
         return self.count_nodes()
     
     def __repr__(self):
-        return f"BinarySearchTree({self.inorder()})"
+        return f"BinarySearchTree({self.inorder()})\n"
     
     def __str__(self):
         return (
-            f"BinarySearchTree with root value: {self.root.value if self.root else None}, "
-            f"Height: {self.height()}, "
-            f"Nodes: {self.count_nodes()}, "
-            f"Leaves: {self.count_leaves()}"
-            f"Inorder: {self.inorder()}"
+            f"BinarySearchTree with root value: {self.root.value if self.root else None}\n"
+            f"Height: {self.height()}\n"
+            f"Nodes: {self.count_nodes()}\n"
+            f"Leaves: {self.count_leaves()}\n"
+            f"Inorder: {self.inorder()}\n"
         )
     
     def is_empty(self):

@@ -134,16 +134,6 @@ print(len(table))
 
 ---
 
-## Future Improvements
-
-* Implement iterators (`keys()`, `values()`, `items()`)
-* Support custom hash functions
-* Implement open addressing for comparison
-* Improve string formatting for large tables
-* Add comprehensive edge-case tests
-
----
-
 ## Learning Objective
 
 This implementation was created to understand:

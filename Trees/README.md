@@ -152,18 +152,6 @@ Useful for deleting an entire tree or evaluating expression trees.
 
 ---
 
-## Future Improvements
-
-- Level-order traversal (BFS)
-- Tree iterator (`__iter__`)
-- AVL Tree
-- Red-Black Tree
-- Pretty tree visualization
-- Lowest Common Ancestor
-- Successor and predecessor operations
-
----
-
 ## Learning Objectives
 
 This implementation was created to understand:

@@ -96,16 +96,6 @@ print(20 in ll)
 
 ---
 
-## Future Improvements
-
-* Implement an iterator (`__iter__`)
-* Support negative indices for `get()`
-* Optimize `append()` to O(1) using a tail pointer
-* Add more edge-case tests
-* Implement a doubly linked list
-
----
-
 ## Learning Objective
 
 The purpose of this implementation is to understand:

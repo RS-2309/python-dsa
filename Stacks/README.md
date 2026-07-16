@@ -104,15 +104,6 @@ print(20 in stack)
 
 ---
 
-## Future Improvements
-
-* Add an iterator (`__iter__`)
-* Support copying and deep copying
-* Add optional type hints
-* Expand test coverage with additional edge cases
-
----
-
 ## Learning Objective
 
 This implementation was created to understand:
