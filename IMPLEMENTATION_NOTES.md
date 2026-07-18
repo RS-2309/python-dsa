@@ -75,3 +75,27 @@ This file contains implementation improvements that were explicitly suggested du
 - [ ] Add `__contains__`.
 
 ---
+
+## Graph Improvements
+
+- [ ] Add `__iter__`.
+- [ ] Add `clear()`.
+- [ ] Add `is_empty()`.
+- [ ] Add `neighbors(vertex)`.
+- [ ] Add support for directed graphs.
+- [ ] Add support for weighted graphs.
+- [ ] Add comprehensive edge-case tests.
+
+---
+
+## Graph Algorithms
+
+- [ ] Add shortest path reconstruction using BFS.
+- [ ] Add connected components.
+- [ ] Add cycle detection.
+- [ ] Implement Dijkstra's Algorithm.
+- [ ] Implement Topological Sort.
+- [ ] Implement Prim's Algorithm.
+- [ ] Implement Kruskal's Algorithm.
+
+---

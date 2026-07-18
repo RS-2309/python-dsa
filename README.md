@@ -35,12 +35,13 @@ python-dsa/
 - ✅ Binary Search Tree
 - ✅ Min Heap
 - ✅ Max Heap
+- ✅ Graphs
 
 ---
 
 ## Coming Soon
 
-- ⏳ Graphs
+- ⏳ Graph Algorithms
 - ⏳ Sorting Algorithms
 - ⏳ Searching Algorithms
 - ⏳ Dynamic Programming
@@ -77,6 +78,8 @@ linked_lists/
 
 ## Progress
 
+### Data Structures
+
 - 🟢 Linked Lists
 - 🟢 Stacks
 - 🟢 Queues
@@ -84,7 +87,16 @@ linked_lists/
 - 🟢 Recursion
 - 🟢 Binary Search Trees
 - 🟢 Heaps
-- ⚪ Graphs
+- 🟢 Graphs
+
+### Algorithms
+
+- ⚪ Graph Algorithms
+- ⚪ Searching Algorithms
+- ⚪ Sorting Algorithms
+- ⚪ Greedy Algorithms
+- ⚪ Backtracking
+- ⚪ Dynamic Programming
 
 ---
 
