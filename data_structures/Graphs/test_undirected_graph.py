@@ -1,9 +1,9 @@
-from graph import Graph
+from undirected_graph import UndirectedGraph
 
-print("========== GRAPH TEST ==========\n")
+print("========== UNDIRECTED GRAPH TEST ==========\n")
 
 # Constructor
-graph = Graph()
+graph = UndirectedGraph()
 
 print("Empty graph created.")
 print("Vertices:", len(graph))
@@ -21,6 +21,14 @@ for vertex in vertices:
 print(graph)
 print()
 
+# Iteration
+print("Testing Iteration")
+
+for vertex in graph:
+    print(vertex, end=" ")
+
+print("\n")
+
 # Add Edges
 print("Adding edges...")
 
@@ -31,6 +39,12 @@ graph.add_edge("C", "D")
 graph.add_edge("D", "E")
 
 print(graph)
+print()
+
+# Adjacency List Access
+print("Testing __getitem__")
+print("Neighbors of A:", graph["A"])
+print("Neighbors of D:", graph["D"])
 print()
 
 # Membership
@@ -52,6 +66,7 @@ print()
 
 # BFS
 print("Breadth First Search")
+
 bfs_result = graph.bfs("A")
 
 print("Traversal Order:")
@@ -59,6 +74,11 @@ print(bfs_result.order)
 
 print("\nDistances:")
 print(bfs_result.place_value)
+
+print("\nMembership on BFSResult")
+print("D in BFS:", "D" in bfs_result)
+print("X in BFS:", "X" in bfs_result)
+
 print()
 
 # Cached BFS
@@ -118,12 +138,17 @@ try:
 except KeyError as e:
     print("KeyError:", e)
 
+try:
+    print(graph["X"])
+except KeyError as e:
+    print("KeyError:", e)
+
 print()
 
 # Disconnected Graph
 print("Testing Disconnected Graph")
 
-g2 = Graph()
+g2 = UndirectedGraph()
 
 for vertex in ["X", "Y", "Z"]:
     g2.add_vertex(vertex)

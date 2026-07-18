@@ -1,4 +1,4 @@
-# Graph
+# Undirected Graph
 
 An undirected graph implementation written from scratch in Python using an adjacency list.
 
@@ -9,12 +9,12 @@ This implementation was created as part of my Data Structures & Algorithms (DSA)
 ## Files
 
 ```text
-graph.py
-test_graph.py
+undirected_graph.py
+test_undirected_graph.py
 ```
 
-- **graph.py** – Contains the `Graph` implementation and BFS result class.
-- **test_graph.py** – Demonstrates and tests all implemented operations.
+- **undirected_graph.py** – Contains the `UndirectedGraph` implementation and BFS result class.
+- **test_undirected_graph.py** – Demonstrates and tests all implemented operations.
 
 ---
 
@@ -28,6 +28,8 @@ test_graph.py
 - Breadth First Search (BFS)
 - Depth First Search (DFS)
 - Membership testing using `in`
+- Iteration support using `for`
+- Vertex access using `[]`
 - Cached BFS results
 - Distance tracking using BFS
 
@@ -36,7 +38,7 @@ test_graph.py
 ## Supported Operations
 
 | Method | Description |
-|-------|------|
+|----------|-------------|
 | `add_vertex()` | Adds a vertex to the graph. |
 | `remove_vertex()` | Removes a vertex and all connected edges. |
 | `add_edge()` | Adds an undirected edge between two vertices. |
@@ -52,18 +54,22 @@ test_graph.py
 ## Python Special Methods
 
 | Method | Purpose |
-|------|------|
+|----------|-------------|
 | `__contains__` | Enables use of `in`. |
 | `__len__` | Enables use of `len()`. |
 | `__repr__` | Developer-friendly representation. |
 | `__str__` | Human-readable graph summary. |
+| `__iter__` | Enables iteration over vertices. |
+| `__getitem__` | Enables adjacency list access. |
 
 ---
 
 ## Example
 
 ```python
-graph = Graph()
+from undirected_graph import UndirectedGraph
+
+graph = UndirectedGraph()
 
 graph.add_vertex("A")
 graph.add_vertex("B")
@@ -75,6 +81,19 @@ graph.add_edge("B", "C")
 print(graph.bfs("A").order)
 
 # ['A', 'B', 'C']
+```
+
+### Iteration
+
+```python
+for vertex in graph:
+    print(vertex)
+```
+
+### Adjacency List Access
+
+```python
+print(graph["A"])
 ```
 
 ---
@@ -129,6 +148,8 @@ Distances:
 - BFS results are cached when possible.
 - BFS tracks the shortest distance from the start node.
 - Supports arbitrary string vertex names.
+- Supports iteration over vertices.
+- Supports adjacency list access using `[]`.
 - Duplicate edges are ignored.
 
 ---

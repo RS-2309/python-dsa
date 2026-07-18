@@ -1,10 +1,16 @@
-class Graph:
+class UndirectedGraph:
     def __init__(self):
         self.graph = {}
         self.edges = 0
         self.bfspair = None
         self.canuse = False
         self.last_start = None
+
+    def __iter__(self):
+        return iter(self.graph)
+    
+    def __getitem__(self, key):
+        return self.graph[key]
 
     def __contains__(self, vertex):
         if vertex in self.graph:
