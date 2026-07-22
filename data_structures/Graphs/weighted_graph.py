@@ -1,4 +1,6 @@
-class UndirectedGraph:
+from collections import deque
+
+class WeightedGraph:
     def __init__(self):
         self.graph = {}
         self.edges = 0
@@ -29,12 +31,34 @@ class UndirectedGraph:
         f"Edges: {self.edges}\n"
         f"Graph: {self.graph}")
     
+    def get_weight(self, vertex_1: str, vertex_2: str):
+        if vertex_1 not in self.graph:
+            raise KeyError(vertex_1)
+        
+        if vertex_2 not in self.graph:
+            raise KeyError(vertex_2)
+        
+        return self.graph[vertex_1][vertex_2]
+    
     def neighbors(self, vertex):
         if vertex not in self.graph:
             raise KeyError(vertex)
         
-        return self.graph[vertex]    
+        return self.graph[vertex].keys()
     
+    def update_weights(self, vertex_1, vertex_2, weight):
+        if vertex_1 not in self.graph:
+            raise KeyError(vertex_1)
+        
+        if vertex_2 not in self.graph:
+            raise KeyError(vertex_2)
+
+        if vertex_2 not in self.graph[vertex_1]:
+            raise KeyError("Edge does not exist.")
+
+        self.graph[vertex_1][vertex_2] = weight
+        self.graph[vertex_2][vertex_1] = weight       
+
     def is_connected(self):
         if not self.graph:
             return True
@@ -45,25 +69,30 @@ class UndirectedGraph:
         if vertex in self.graph:
             return f"Vertex: '{vertex}' already exists."
         
-        self.graph[vertex] = []
+        self.graph[vertex] = {}
 
         self.canuse = False
         self.bfspair = None
 
-        return []
+        return {}
 
-    def add_edge(self, vertex_1: str, vertex_2: str):
+    def add_edge(self, vertex_1: str, vertex_2: str, weight: int):
         if vertex_1 not in self.graph:
             raise KeyError(vertex_1)
         
         if vertex_2 not in self.graph:
             raise KeyError(vertex_2)
         
+        if vertex_2 in self.graph[vertex_1]:
+            self.graph[vertex_1][vertex_2] = weight
+            self.graph[vertex_2][vertex_1] = weight
+            return
+        
         if vertex_2 not in self.graph[vertex_1]:
-            self.graph[vertex_1].append(vertex_2)
+            self.graph[vertex_1][vertex_2] = weight
         
         if vertex_1 not in self.graph[vertex_2]:
-            self.graph[vertex_2].append(vertex_1)
+            self.graph[vertex_2][vertex_1] = weight
 
         self.edges += 1
         self.canuse = False
@@ -78,7 +107,7 @@ class UndirectedGraph:
 
         for key in self.graph:
             if vertex in self.graph[key]:
-                self.graph[key].remove(vertex)
+                del self.graph[key][vertex]
 
         self.canuse = False
         self.bfspair = None
@@ -94,10 +123,10 @@ class UndirectedGraph:
             raise KeyError(f"Edge {vertex_1, vertex_2} does not exist.")
 
         if vertex_2 in self.graph[vertex_1]:
-            self.graph[vertex_1].remove(vertex_2)
+            del self.graph[vertex_1][vertex_2]
 
         if vertex_1 in self.graph[vertex_2]:
-            self.graph[vertex_2].remove(vertex_1)
+            del self.graph[vertex_2][vertex_1]
 
         self.edges -= 1
         self.canuse = False
@@ -137,13 +166,13 @@ class UndirectedGraph:
         if self.canuse and self.last_start == start:
             return self.BFSResult(self.bfspair[0], self.bfspair[1])
 
-        queue = [start]
+        queue = deque([start])
         visited = set()
         order = []
         place_value = {start: 0}
 
         while queue:
-            current = queue.pop(0)
+            current = queue.popleft()
 
             if current in visited:
                 continue
@@ -179,7 +208,7 @@ class UndirectedGraph:
             visited.add(current)
             order.append(current)
 
-            for neighbor in reversed(self.graph[current]):
+            for neighbor in reversed(list(self.graph[current])):
                 if neighbor not in visited:
                     stack.append(neighbor)
 

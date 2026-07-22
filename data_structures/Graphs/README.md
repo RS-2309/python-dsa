@@ -1,8 +1,8 @@
-# Undirected Graph
+# Graph Implementations
 
-An undirected graph implementation written from scratch in Python using an adjacency list.
+Graph implementations written from scratch in Python using adjacency lists.
 
-This implementation was created as part of my Data Structures & Algorithms (DSA) learning journey to understand graph traversal, connectivity, and graph manipulation algorithms.
+These implementations were created as part of my Data Structures & Algorithms (DSA) learning journey to understand graph traversal, connectivity, graph variants, and graph algorithms.
 
 ---
 
@@ -11,50 +11,85 @@ This implementation was created as part of my Data Structures & Algorithms (DSA)
 ```text
 undirected_graph.py
 test_undirected_graph.py
+
+directed_graph.py
+test_directed_graph.py
+
+weighted_graph.py
+test_weighted_graph.py
 ```
 
-- **undirected_graph.py** – Contains the `UndirectedGraph` implementation and BFS result class.
-- **test_undirected_graph.py** – Demonstrates and tests all implemented operations.
+- **undirected_graph.py** – Implements an undirected graph.
+- **directed_graph.py** – Implements a directed graph.
+- **weighted_graph.py** – Implements a weighted graph.
+- All implementations include corresponding test files.
 
 ---
 
-## Features
+## Implementations
 
-- Add vertices
-- Remove vertices
-- Add edges
-- Remove edges
-- Check connectivity
+### Undirected Graph
+
+Features:
+
+- Add/Remove vertices
+- Add/Remove edges
 - Breadth First Search (BFS)
 - Depth First Search (DFS)
-- Membership testing using `in`
-- Iteration support using `for`
-- Vertex access using `[]`
-- Cached BFS results
-- Distance tracking using BFS
+- Connectivity checks
+- BFS caching
+- Distance tracking
 
 ---
 
-## Supported Operations
+### Directed Graph
 
-| Method | Description |
-|----------|-------------|
-| `add_vertex()` | Adds a vertex to the graph. |
-| `remove_vertex()` | Removes a vertex and all connected edges. |
-| `add_edge()` | Adds an undirected edge between two vertices. |
-| `remove_edge()` | Removes an edge between two vertices. |
-| `has_vertex()` | Checks if a vertex exists. |
-| `has_edge()` | Checks if an edge exists. |
-| `bfs()` | Performs Breadth First Search. |
-| `dfs()` | Performs Depth First Search. |
-| `is_connected()` | Checks whether the graph is connected. |
+Features:
+
+- Add/Remove vertices
+- Add/Remove directed edges
+- Breadth First Search (BFS)
+- Depth First Search (DFS)
+- Weak connectivity checks
+- Strong connectivity checks
+- BFS caching
+- Distance tracking
+
+---
+
+### Weighted Graph
+
+Features:
+
+- Add/Remove vertices
+- Add/Remove weighted edges
+- Breadth First Search (BFS)
+- Depth First Search (DFS)
+- Connectivity checks
+- Weight retrieval
+- Weight updates
+- Neighbor queries
+- BFS caching
+- Distance tracking
+
+---
+
+## Graph Variants
+
+| Graph Type | Directed | Weighted |
+| ---------- | :------: | :------: |
+| Undirected Graph | No | No |
+| Directed Graph | Yes | No |
+| Weighted Graph | No | Yes |
 
 ---
 
 ## Python Special Methods
 
+All graph implementations support:
+
 | Method | Purpose |
-|----------|-------------|
+|------|------|
 | `__contains__` | Enables use of `in`. |
 | `__len__` | Enables use of `len()`. |
 | `__repr__` | Developer-friendly representation. |
@@ -64,64 +99,27 @@ test_undirected_graph.py
 
 ---
 
-## Example
+## Supported Algorithms
 
-```python
-from undirected_graph import UndirectedGraph
+### Traversal
 
-graph = UndirectedGraph()
+- Breadth First Search (BFS)
+- Depth First Search (DFS)
 
-graph.add_vertex("A")
-graph.add_vertex("B")
-graph.add_vertex("C")
+### Connectivity
 
-graph.add_edge("A", "B")
-graph.add_edge("B", "C")
+- Connected Components
+- Cycle Detection
+- Connectivity Checks
+- Weak Connectivity
+- Strong Connectivity
 
-print(graph.bfs("A").order)
+### Coming Soon
 
-# ['A', 'B', 'C']
-```
-
-### Iteration
-
-```python
-for vertex in graph:
-    print(vertex)
-```
-
-### Adjacency List Access
-
-```python
-print(graph["A"])
-```
-
----
-
-## BFS Result Object
-
-`bfs()` returns a `BFSResult` object containing:
-
-```python
-result = graph.bfs("A")
-
-result.order
-result.place_value
-```
-
-Example:
-
-```python
-Order:
-['A', 'B', 'C']
-
-Distances:
-{
-    'A': 0,
-    'B': 1,
-    'C': 2
-}
-```
+- Dijkstra's Algorithm
+- Topological Sort
+- Prim's Algorithm
+- Kruskal's Algorithm
 
 ---
 
@@ -132,25 +130,24 @@ Distances:
 | Add Vertex | O(1) |
 | Remove Vertex | O(V + E) |
 | Add Edge | O(1) |
-| Remove Edge | O(V) |
-| Has Vertex | O(1) |
-| Has Edge | O(V) |
+| Remove Edge | O(1) - O(V) |
 | BFS | O(V + E) |
 | DFS | O(V + E) |
-| Connectivity Check | O(V + E) |
+| Connectivity Checks | O(V + E) |
 
 ---
 
 ## Design Choices
 
 - Implemented using adjacency lists.
-- Graph is undirected.
+- Supports undirected, directed, and weighted graphs.
 - BFS results are cached when possible.
-- BFS tracks the shortest distance from the start node.
 - Supports arbitrary string vertex names.
 - Supports iteration over vertices.
 - Supports adjacency list access using `[]`.
 - Duplicate edges are ignored.
+- Directed graphs support weak and strong connectivity checks.
+- Weighted graphs store weights using dictionaries.
 
 ---
 
@@ -162,7 +159,9 @@ This implementation was created to understand:
 - Adjacency Lists
 - Breadth First Search
 - Depth First Search
-- Graph connectivity
-- Shortest path distances using BFS
-- Graph traversal algorithms
-- Complexity analysis
+- Connected Components
+- Cycle Detection
+- Weak vs Strong Connectivity
+- Weighted Graphs
+- Graph Traversal Algorithms
+- Complexity Analysis

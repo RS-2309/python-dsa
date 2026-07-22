@@ -1,4 +1,4 @@
-class UndirectedGraph:
+class DirectedGraph:
     def __init__(self):
         self.graph = {}
         self.edges = 0
@@ -29,17 +29,47 @@ class UndirectedGraph:
         f"Edges: {self.edges}\n"
         f"Graph: {self.graph}")
     
-    def neighbors(self, vertex):
-        if vertex not in self.graph:
-            raise KeyError(vertex)
-        
-        return self.graph[vertex]    
-    
     def is_connected(self):
+        raise NotImplementedError(
+            "Directed graphs use weakly/strongly connected."
+        )
+
+    def is_weakly_connected(self):
         if not self.graph:
             return True
-        
-        return len(self.bfs(next(iter(self.graph))).order) == len(self.graph)
+
+        temp = {v: [] for v in self.graph}
+
+        for source in self.graph:
+            for destination in self.graph[source]:
+                temp[source].append(destination)
+                temp[destination].append(source)
+
+        stack = [next(iter(temp))]
+        visited = set()
+
+        while stack:
+            current = stack.pop()
+
+            if current in visited:
+                continue
+
+            visited.add(current)
+
+            for neighbor in temp[current]:
+                if neighbor not in visited:
+                    stack.append(neighbor)
+
+        return len(visited) == len(self.graph)
+    
+    def is_strongly_connected(self):
+
+        for vertex in self.graph:
+
+            if len(self.bfs(vertex).order) != len(self.graph):
+                return False
+
+        return True
 
     def add_vertex(self, vertex: str):
         if vertex in self.graph:
@@ -52,22 +82,18 @@ class UndirectedGraph:
 
         return []
 
-    def add_edge(self, vertex_1: str, vertex_2: str):
-        if vertex_1 not in self.graph:
-            raise KeyError(vertex_1)
+    def add_edge(self, source: str, destination: str):
+        if source not in self.graph:
+            raise KeyError(source)
         
-        if vertex_2 not in self.graph:
-            raise KeyError(vertex_2)
+        if destination not in self.graph:
+            raise KeyError(destination)
         
-        if vertex_2 not in self.graph[vertex_1]:
-            self.graph[vertex_1].append(vertex_2)
-        
-        if vertex_1 not in self.graph[vertex_2]:
-            self.graph[vertex_2].append(vertex_1)
-
-        self.edges += 1
-        self.canuse = False
-        self.bfspair = None
+        if destination not in self.graph[source]:
+            self.graph[source].append(destination)
+            self.edges += 1
+            self.canuse = False
+            self.bfspair = None
 
     def remove_vertex(self, vertex: str):
         if vertex not in self.graph:
@@ -79,29 +105,26 @@ class UndirectedGraph:
         for key in self.graph:
             if vertex in self.graph[key]:
                 self.graph[key].remove(vertex)
+                self.edges -= 1
 
         self.canuse = False
         self.bfspair = None
 
-    def remove_edge(self, vertex_1: str, vertex_2: str):
-        if vertex_1 not in self.graph:
-            raise KeyError(vertex_1)
+    def remove_edge(self, source: str, destination: str):
+        if source not in self.graph:
+            raise KeyError(source)
         
-        if vertex_2 not in self.graph:
-            raise KeyError(vertex_2)
+        if destination not in self.graph:
+            raise KeyError(destination)
 
-        if vertex_2 not in self.graph[vertex_1]:
-            raise KeyError(f"Edge {vertex_1, vertex_2} does not exist.")
+        if destination not in self.graph[source]:
+            raise KeyError(f"Edge {source, destination} does not exist.")
 
-        if vertex_2 in self.graph[vertex_1]:
-            self.graph[vertex_1].remove(vertex_2)
-
-        if vertex_1 in self.graph[vertex_2]:
-            self.graph[vertex_2].remove(vertex_1)
-
-        self.edges -= 1
-        self.canuse = False
-        self.bfspair = None
+        if destination in self.graph[source]:
+            self.graph[source].remove(destination)
+            self.edges -= 1
+            self.canuse = False
+            self.bfspair = None
 
     def has_vertex(self, vertex: str):
         if vertex in self.graph:
@@ -109,14 +132,14 @@ class UndirectedGraph:
         
         return False
 
-    def has_edge(self, vertex_1: str, vertex_2: str):
-        if vertex_1 not in self.graph:
-            raise KeyError(vertex_1)
+    def has_edge(self, source: str, destination: str):
+        if source not in self.graph:
+            raise KeyError(source)
 
-        if vertex_2 not in self.graph:
-            raise KeyError(vertex_2)
+        if destination not in self.graph:
+            raise KeyError(destination)
 
-        if vertex_2 in self.graph[vertex_1]:
+        if destination in self.graph[source]:
             return True
 
         return False
