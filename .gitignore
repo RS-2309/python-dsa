@@ -6,3 +6,10 @@ __pycache__/
 *.pyc
 test_file.py
 problem_test.py
+leetcode_file_generator.py
+
+bellman_ford.py
+
+leetcode/#0015.py
+leetcode/#0022.py
+leetcode/#0024_swap_nodes_in_pairs.py

@@ -2,6 +2,7 @@ from data_structures.Graphs.undirected_graph import UndirectedGraph
 
 def cycle_detection(graph: UndirectedGraph) -> bool:
     visited_graph = set()
+    visited = set()
 
     for key in graph:
         visited_graph.update(visited)
@@ -17,7 +18,7 @@ def cycle_detection(graph: UndirectedGraph) -> bool:
 
                 visited.add(current)
 
-                for neighbor in reversed(graph[current]):
+                for neighbor in graph[current]:
                     if neighbor not in visited:
                         stack.append((neighbor, current))
 

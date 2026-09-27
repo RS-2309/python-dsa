@@ -1,4 +1,4 @@
-from directed_graphs import DirectedGraph
+from directed_graph import DirectedGraph
 
 print("========== DIRECTED GRAPH TEST ==========\n")
 

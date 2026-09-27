@@ -1,0 +1,1 @@
+1. Dummy-Node method for Linked Lists
